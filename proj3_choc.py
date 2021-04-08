@@ -1,3 +1,8 @@
+#################################
+##### Name: YuHua
+##### Uniqname: simonhua
+#################################
+
 import sqlite3
 
 # proj3_choc.py
@@ -7,11 +12,43 @@ import sqlite3
 
 # Part 1: Read data from a database called choc.db
 DBNAME = 'choc.sqlite'
+conn = sqlite3.connect(DBNAME)
 
 # Part 1: Implement logic to process user commands
 def process_command(command):
-    return []
+    
+    query = command.splite(' ')
+    if len(query) != 0:
+        high_level = decideHighLevelCommands(query[0])
+        if not high_level:
+            print("Please check your input!")
+            return False
+        if high_level == 1:
+            pass
+        elif high_level == 2:
+            pass
+        elif high_level == 3:
+            pass
+        else:
+            pass
 
+    return []
+def bars(option_commands):
+    query = '''
+    SELECT Bars.SpecificBeanBarName, Bars.Company, 
+    '''
+    if (len(option_commands) == 0):
+def decideHighLevelCommands(opeartion):
+    if (opeartion == 'bars'):
+        return 1
+    elif (opeartion == 'companies'):
+        return 2
+    elif (opeartion == 'countries'):
+        return 3
+    elif (opeartion == 'regions'):
+        return 3
+    else:
+        return 0
 
 def load_help_text():
     with open('help.txt') as f:

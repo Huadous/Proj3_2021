@@ -35,7 +35,13 @@ def process_command(command):
     return []
 def bars(option_commands):
     query = '''
-    SELECT Bars.SpecificBeanBarName, Bars.Company, 
+        SELECT a.SpecificBeanBarName, a.Company, b.EnglishName, a.Rating, a.CocoaPercent, c.EnglishName
+        FROM Bars a
+        JOIN Countries b ON b.Id = a.CompanyLocationId
+        JOIN Countries c ON c.Id = a.BroadBeanOriginId
+        WHERE b.Alpha2 = 'BR'
+        ORDER BY a.Rating ASC
+        LIMIT 8
     '''
     if (len(option_commands) == 0):
 def decideHighLevelCommands(opeartion):

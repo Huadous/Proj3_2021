@@ -16,4 +16,4 @@ Parameters:
 - <integer>, default=10
     - List <limit> matches.
 - [barplot]
-    - display a barplot which nicely visualizes the results
+    - display a barplot which nicely visualizes the results.
